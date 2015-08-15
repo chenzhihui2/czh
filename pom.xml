@@ -55,6 +55,8 @@
     </properties>
     <modules>
         <module>czh-common</module>
+        <module>atm</module>
+        <module>czh-persistent</module>
     </modules>
     <dependencyManagement>
         <dependencies>
