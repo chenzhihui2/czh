@@ -1,4 +1,4 @@
-package cat.nio;
+package cat.nio.echoExample;
 
 
  /*
