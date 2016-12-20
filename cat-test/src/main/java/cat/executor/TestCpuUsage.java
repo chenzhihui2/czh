@@ -8,12 +8,13 @@ import java.util.concurrent.Executors;
  */
 public class TestCpuUsage {
     public static void main(String args[]){
-        Executor executor=Executors.newFixedThreadPool(1000);
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("test cpu usage");
-            }
-        });
+        System.out.println(Runtime.getRuntime().availableProcessors());
+//        Executor executor=Executors.newFixedThreadPool(1000);
+//        executor.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//                System.out.println("test cpu usage");
+//            }
+//        });
     }
 }

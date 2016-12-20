@@ -70,6 +70,7 @@ public final class EchoClient {
                             }
                             //p.addLast(new LoggingHandler(LogLevel.INFO));
                             p.addLast(new EchoClientHandler());
+                            p.addLast(new EchoClient2Handler());
                         }
                     });
 
