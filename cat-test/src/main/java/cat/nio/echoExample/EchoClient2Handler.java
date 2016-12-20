@@ -37,7 +37,7 @@ public class EchoClient2Handler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf byteBuf= (ByteBuf) msg;
         System.out.println(byteBuf.getByte(2));;
-        ctx.write(msg);
+        ctx.writeAndFlush(msg);
     }
 
 
