@@ -6,4 +6,5 @@ package cat.jdkDynamicProxy;
  */
 public interface Subject {
     public void sayHello();
+    public String sayGood();
 }

@@ -9,4 +9,10 @@ public class SubjectImpl implements Subject{
     public void sayHello() {
         System.out.println("hello jdk dynamic proxy");
     }
+
+    @Override
+    public String sayGood() {
+        System.out.println("good");
+          return "good";
+    }
 }

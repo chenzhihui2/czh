@@ -12,5 +12,6 @@ public class Test {
         InvocationHandler invocationHandler=new DynamicInvocationHandler(subject);
         Subject proxySubject= (Subject) Proxy.newProxyInstance(subject.getClass().getClassLoader(),subject.getClass().getInterfaces(),invocationHandler);
         proxySubject.sayHello();
+        proxySubject.sayGood();
     }
 }
