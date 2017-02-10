@@ -39,9 +39,9 @@ public class CertUtils {
 
             //私钥
             CertUtils certUtils=new CertUtils();
-            certUtils.loadPKCS12("D:\\workspace\\czh\\cat-test\\src\\main\\resources\\personal.pfx","qiancai1756_123");
+            certUtils.loadPKCS12("D:\\workspace\\czh\\cat-test\\src\\main\\resources\\personal.pfx","qiancai_1756_123456");
             String s=certUtils.sign("abcde");
-            certUtils.verify("abcde",s);
+            certUtils.verify("abcdef",s);
 //            certUtils.loadX509Certificate(cerStr);
         }
     public void verify(String s,String sign)throws  Exception{
@@ -60,7 +60,7 @@ public class CertUtils {
         signature.initSign(this.privateKey);
         signature.update(src.getBytes());
         byte bytes[]=signature.sign();
-        return bytes2Hex(bytes);
+        return StringUtil.toHexString(bytes);
     }
 
     public static String bytes2Hex(byte[] bts) {
