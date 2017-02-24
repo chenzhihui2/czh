@@ -1,9 +1,11 @@
 package cat.qbkTest;
 
 import cat.util.HttpUtils;
+import cat.util.URLConnectionTool;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -140,14 +142,19 @@ public class TestCPCN {
         String result=HttpUtils.doPost("http://localhost:8081/pay/cpcn/checkBookQuery",json,"application/x-www-form-urlencoded","utf-8");
         System.out.print(result);
     }
+
     public static void main(String[] args) throws Exception {
+        String result=HttpUtils.doPost("http://117.78.45.101:8083/pay/lycheepay/reconfileDownload","startDate=20170210&endDate=20170224","application/x-www-form-urlencoded","utf-8");
+
+//        URLConnectionTool.readContentFromPost("http://117.78.45.101:8083/pay/lycheepay/reconfileDownload","startDate=20170210&endDate=20170224","60000","60000");
+        System.out.println(result);
 //            testWhiteListUpload();
 //        testWhiteListOneQuery();
 //        testWhiteListBatcheQuery();
 //        onePayRequest();
 //        callBack();
 //        onePayCheckBookQuery();
-        payWithRouter();
+//        payWithRouter();
 //        batchPayRequest();
 //        batchPayStatQuery();
 //        batchPayDetailQuery();

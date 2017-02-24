@@ -68,6 +68,7 @@ public class HttpUtils {
                 httpPost.abort();
                 throw new RuntimeException("HttpClient,error status code :" + statusCode);
             }
+            response.getEntity().getContentLength();
             HttpEntity entity = response.getEntity();
             String result = null;
             if (entity != null){
