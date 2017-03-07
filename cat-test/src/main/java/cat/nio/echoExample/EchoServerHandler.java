@@ -18,6 +18,7 @@ package cat.nio.echoExample;
    */
 
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -31,13 +32,18 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf byteBuf= (ByteBuf) msg;
-        System.out.println(byteBuf.getByte(2));;
-        ctx.write(msg);
+        int size=byteBuf.readableBytes();
+        for(int i=0;i<size;i++){
+            System.out.println("==="+(char)byteBuf.getByte(i));;
+        }
+        ByteBuf firstMessage = Unpooled.buffer(20);
+        firstMessage.writeBytes("hello how are you".getBytes());
+        ctx.writeAndFlush(firstMessage);
     }
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
-        ctx.flush();
+//        ctx.flush();
     }
 
     @Override

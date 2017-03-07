@@ -39,7 +39,7 @@ public class CertUtils {
 
             //私钥
             CertUtils certUtils=new CertUtils();
-            certUtils.loadPKCS12("D:\\workspace\\czh\\cat-test\\src\\main\\resources\\personal.pfx","qiancai_1756_123456");
+            certUtils.loadPKCS12("D:\\workspace\\czh\\cat-test\\src\\main\\resources\\zhongjinzhengshu2.pfx","qiancai1756");
             String s=certUtils.sign("abcde");
             certUtils.verify("abcdef",s);
 //            certUtils.loadX509Certificate(cerStr);

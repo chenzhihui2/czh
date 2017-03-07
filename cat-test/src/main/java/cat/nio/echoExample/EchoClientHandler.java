@@ -37,10 +37,8 @@ public class EchoClientHandler extends ChannelInboundHandlerAdapter {
      * Creates a client-side handler.
      */
     public EchoClientHandler() {
-        firstMessage = Unpooled.buffer(EchoClient.SIZE);
-        for (int i = 0; i < firstMessage.capacity(); i ++) {
-            firstMessage.writeByte((byte) i);
-        }
+        firstMessage = Unpooled.buffer(10);
+        firstMessage.writeBytes("abcdefghij".getBytes());
     }
 
     @Override
@@ -51,15 +49,17 @@ public class EchoClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf byteBuf= (ByteBuf) msg;
-        System.out.println(byteBuf.getByte(2));;
-        ctx.write(msg);
-        ctx.fireChannelRead(msg);
+        int size=byteBuf.readableBytes();
+        for(int i=0;i<size;i++){
+            System.out.println("client==="+(char)byteBuf.getByte(i));;
+        }
+//        ctx.write(msg);
     }
 
-//    @Override
-//    public void channelReadComplete(ChannelHandlerContext ctx) {
-//        ctx.flush();
-//    }
+    @Override
+    public void channelReadComplete(ChannelHandlerContext ctx) {
+        ctx.channel().close();
+    }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
