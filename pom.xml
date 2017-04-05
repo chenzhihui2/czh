@@ -11,6 +11,7 @@
         <module>cat-cmmon</module>
         <module>cat-dao</module>
         <module>cat-test</module>
+        <module>tbq_toolkits</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
