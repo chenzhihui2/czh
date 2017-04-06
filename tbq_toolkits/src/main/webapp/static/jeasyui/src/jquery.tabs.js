@@ -654,7 +654,7 @@
 	}
 	
 	/**
-	 * do first select action, if no tab is setted the first tab will be selected.
+	 * entity first select action, if no tab is setted the first tab will be selected.
 	 */
 	function doFirstSelect(container){
 		var state = $.data(container, 'tabs')

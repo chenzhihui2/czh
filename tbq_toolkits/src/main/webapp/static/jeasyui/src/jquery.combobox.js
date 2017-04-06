@@ -221,7 +221,7 @@
 	}
 	
 	/**
-	 * do the query action
+	 * entity the query action
 	 */
 	function doQuery(target, q){
 		var state = $.data(target, 'combobox');
