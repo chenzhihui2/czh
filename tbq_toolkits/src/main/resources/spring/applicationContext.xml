@@ -17,11 +17,11 @@
     <aop:aspectj-autoproxy/>
     <context:annotation-config/>
     <!-- 启动包扫描功能，以便注册带有@Controller、@Service、@repository、@Component等注解的类成为spring的bean -->
-    <context:component-scan base-package="cn.tbq.service">
+    <context:component-scan base-package="cat.tbq">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-    <bean    class="cat.spring.PropertyPlaceholderConfigurer">
+    <bean  class="cat.spring.PropertyPlaceholderConfigurer">
         <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
         <property name="ignoreResourceNotFound" value="true"/>
         <property name="locations">
@@ -33,7 +33,7 @@
         </property>
     </bean>
 
-    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" >
         <property name="url" value="${jdbc.url}"/>
         <property name="driverClassName" value="${jdbc.driver}"/>
         <property name="maxActive" value="${pool.maxPoolSize}"/>
@@ -75,11 +75,19 @@
         </property>
         <property name="configurationProperties">
             <props>
-                <prop key="dialect">mysql</prop>
+                <prop key="dialect">cat.mybatis.dialect.MysqlDialect</prop>
             </props>
         </property>
         <property name="plugins">
             <list>
+                <bean class="cat.mybatis.PageInterceptor" >
+                    <property name="properties">
+                        <!--使用下面的方式配置参数，一行配置一个 -->
+                        <value>
+                            dialect=cat.mybatis.pageHelper.dialect.rowbounds.MySqlRowBoundsDialect
+                        </value>
+                    </property>
+                </bean>
             </list>
         </property>
     </bean>

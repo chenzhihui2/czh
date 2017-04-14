@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cat.tbq.hospital.dao.UserDao">
-    <resultMap id="resultmap" type="cat.tbq.hospital.entity.UserBO">
+    <resultMap id="userResultMap" type="cat.tbq.hospital.entity.UserDO">
     </resultMap>
-
+    <select id="selectUserByJobNumber" parameterType="cat.tbq.hospital.entity.UserDO" resultMap="userResultMap">
+        select * from user where id=#{workTerm} and job_number=#{jobNumber}
+    </select>
+    <select id="queryUser" parameterType="cat.tbq.domain.QueryUserDTO" resultMap="userResultMap">
+        SELECT * from user
+    </select>
 </mapper>

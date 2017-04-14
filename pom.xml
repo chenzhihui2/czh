@@ -316,6 +316,11 @@
                 <artifactId>fastjson</artifactId>
                 <version>1.2.24</version>
             </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.driver.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>

@@ -10,8 +10,8 @@
        default-lazy-init="false" default-autowire="byName">
 
 
-    <context:component-scan base-package="cn.tbq" use-default-filters="false">
-        <context:include-filter type="regex" expression="cn.tbq.controller.*"/>
+    <context:component-scan base-package="cat.tbq" use-default-filters="false">
+        <context:include-filter type="regex" expression="cat.tbq.controller.*"/>
     </context:component-scan>
 
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
@@ -42,7 +42,7 @@
         </property>
     </bean>
 
-    <bean id="exceptionHandler" class="cn.tbq.exception.ExceptionHandler"/>
+    <bean id="exceptionHandler" class="cat.tbq.exception.ExceptionHandler"/>
 
     <mvc:default-servlet-handler/>
     <!--<mvc:interceptors>-->

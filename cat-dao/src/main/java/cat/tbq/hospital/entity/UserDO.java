@@ -7,7 +7,7 @@ import lombok.Data;
  * Created by czhtbq on 2017/4/6.
  */
 @Data
-public class UserBO extends BaseBO {
+public class UserDO extends BaseBO {
     private String userName;
     private Integer workTerm;
     private String birthday;

@@ -1,4 +1,4 @@
-package cat.tbq.hospital.dao;
+package cat.tbq.service;
 
 import cat.mybatis.PageResult;
 import cat.tbq.hospital.entity.QueryUserDTO;
@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by czhtbq on 2017/4/6.
  */
-public interface UserDao {
-    public List<UserDO> selectUserByJobNumber(UserDO user);
+public interface UserService {
+    public List<UserDO> queryUserByJobNumber(Integer jobNumber);
     public PageResult<UserDO> queryUser(QueryUserDTO dto);
 }

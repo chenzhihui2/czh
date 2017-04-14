@@ -1,4 +1,4 @@
-package cn.tbq.exception;
+package cat.tbq.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerExceptionResolver;
