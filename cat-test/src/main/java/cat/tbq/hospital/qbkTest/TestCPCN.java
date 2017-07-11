@@ -140,11 +140,57 @@ public class TestCPCN {
         System.out.print(result);
     }
 
-    public static void main(String[] args) throws Exception {
-        String result=HttpUtils.doPost("http://117.78.45.101:8083/pay/lycheepay/reconfileDownload","startDate=20170210&endDate=20170224","application/x-www-form-urlencoded","utf-8");
+    public static void cloudPayRequest() throws Exception {
+//        map.put("amount","100");
+//        map.put("accountName","马嘉悦");
+//        map.put("accountNumber","6217002000035227141");
+//        map.put("identificationNumber","362301198611020522");
+        StringBuffer sb=new StringBuffer();
+        sb.append("amount").append("=").append("0.01");
+        sb.append("&").append("name").append("=").append("周炜炜");
+        sb.append("&").append("cardNo").append("=").append("6217920112718429");
+        sb.append("&").append("idCard").append("=").append("320923199002041885");
+        sb.append("&").append("nid").append("=").append("201706220001934767");
+//        map.put("remark","30");//测试环境备注10成功，备注20失败，备注30处理中
+//        String result=HttpUtils.doPost("http://localhost:8081/pay/cpcn/onePayRequest",json,"application/json","utf-8");
+        String result=HttpUtils.doPost("http://117.78.49.154:8083/pay/cloudPay/preorderApply",sb.toString(),"application/x-www-form-urlencoded","utf-8");
+        System.out.print(result);
+        //curl -d "amount=0.01&name=周炜炜&cardNo=6217920112718429&idCard=320923199002041885&nid=201706220001934765" http://localhost:8080/pay/cloudPay/preorderApply
+    }
 
+
+
+    public static void refund() throws Exception {
+//        map.put("amount","100");
+//        map.put("accountName","马嘉悦");
+//        map.put("accountNumber","6217002000035227141");
+//        map.put("identificationNumber","362301198611020522");
+        StringBuffer sb=new StringBuffer();
+        sb.append("billNo").append("=").append("2017062714022391843");
+//        map.put("remark","30");//测试环境备注10成功，备注20失败，备注30处理中
+//        String result=HttpUtils.doPost("http://localhost:8081/pay/cpcn/onePayRequest",json,"application/json","utf-8");
+        String result=HttpUtils.doPost("http://117.78.49.154:8083/pay/cloudPay/refundOrder",sb.toString(),"application/x-www-form-urlencoded","utf-8");
+        System.out.print(result);
+
+    }
+
+    public static void callBackIncool() throws Exception {
+                       // http://117.78.49.154:8080/third/financing/notifyRes
+        StringBuffer sb=new StringBuffer();
+        sb.append("service").append("=").append("fuck");
+        String json="{\"sign\":\"测试中文\"}";
+        String result=HttpUtils.doPost("http://117.78.49.154:8080/third/financing/notifyRes",json,"application/json","utf-8");
+        System.out.print(result);
+    }
+
+
+
+    public static void main(String[] args) throws Exception {
+//        String result=HttpUtils.doPost("http://117.78.45.101:8083/pay/lycheepay/reconfileDownload","startDate=20170210&endDate=20170224","application/x-www-form-urlencoded","utf-8");
+        cloudPayRequest();
+//        callBackIncool();
+//        refund();
 //        URLConnectionTool.readContentFromPost("http://117.78.45.101:8083/pay/lycheepay/reconfileDownload","startDate=20170210&endDate=20170224","60000","60000");
-        System.out.println(result);
 //            testWhiteListUpload();
 //        testWhiteListOneQuery();
 //        testWhiteListBatcheQuery();

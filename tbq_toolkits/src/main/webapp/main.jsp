@@ -38,7 +38,7 @@
     </div>
     <%--<div data-options="region:'east',split:true" title="East" style="width:100px;"></div>--%>
     <%--<div data-options="region:'west',split:true" title="West" style="width:100px;"></div>--%>
-    <div data-options="region:'center',title:'Main Title',iconCls:'icon-ok'" style="margin: 0px 10px 0px;">
+    <div data-options="region:'center',title:'cn.mbean.Main Title',iconCls:'icon-ok'" style="margin: 0px 10px 0px;">
         <table class="easyui-datagrid"
                toolbar="#toolbar"
                data-options="url:'datagrid_data1.json',method:'get',border:false,singleSelect:true,fit:true,fitColumns:true">
