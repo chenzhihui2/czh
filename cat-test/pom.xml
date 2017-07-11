@@ -14,6 +14,12 @@
 <dependencies>
     <!-- PERSISTENCE end -->
     <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>servlet-api</artifactId>
+        <version>3.0.1</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
         <groupId>io.netty</groupId>
         <artifactId>netty-all</artifactId>
     </dependency>
