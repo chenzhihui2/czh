@@ -1,0 +1,86 @@
+<html>
+
+
+<form name="yeepay" action='./transferParamResolver.jsp' method='post'>
+<table>
+
+<tr>
+	<td colspan="2"><H1>测试提交URL<input type="text" id="textHost" name="textHost" size="80" value="https://cha.yeepay.com/app-merchant-proxy/groupTransferController.action"/><H1>
+	</td>
+</tr>
+
+<tr>
+	<td width=200>接口类型：批量打款xml请求报文</td>
+	<td>
+		<textarea rows="23" cols="120" name="xml" id="xml">
+<data>
+	<cmd>TransferBatch</cmd>
+	<version>1.1</version>
+	<group_Id>10000450379</group_Id>
+	<mer_Id>10000450379</mer_Id>
+	<batch_No>201511030000001</batch_No>
+	<total_Num>2</total_Num>
+	<total_Amt>0.02</total_Amt>
+	<is_Repay>0</is_Repay>
+	<hmac>9f758ed7e6d78b2dda9b8065d548ccda</hmac>
+	<list>
+		<item>
+			<order_Id>20151103000000101</order_Id>
+			<bank_Code>ICBC</bank_Code>
+			<cnaps></cnaps>
+			<bank_Name>工商银行</bank_Name>
+			<branch_Bank_Name>工商银行北京市朝阳支行</branch_Bank_Name>
+			<amount>0.01</amount>
+			<account_Name>张三</account_Name>
+			<account_Number>9558820200001234567</account_Number>
+			<province>110000</province>
+			<city>110000</city>
+			<fee_Type>SOURCE</fee_Type>
+			<payee_Email></payee_Email>
+			<payee_Mobile></payee_Mobile>
+			<urgency>0</urgency>
+			<leave_Word></leave_Word>
+			<abstractInfo></abstractInfo>
+			<remarksInfo></remarksInfo>
+		</item>
+		<item>
+			<order_Id>20151103000000102</order_Id>
+			<bank_Code>ICBC</bank_Code>
+			<cnaps></cnaps> 
+			<bank_Name>工商银行</bank_Name>
+			<branch_Bank_Name>工商银行北京市朝阳支行</branch_Bank_Name>
+			<amount>0.01</amount>
+			<account_Name>李四</account_Name>
+			<account_Number>9558820200001234568</account_Number>
+			<province>110000</province>
+			<city>110000</city>
+			<fee_Type>SOURCE</fee_Type>
+			<payee_Email></payee_Email>
+			<payee_Mobile></payee_Mobile>
+          	<urgency>0</urgency>
+			<leave_Word></leave_Word>
+			<abstractInfo></abstractInfo>
+			<remarksInfo></remarksInfo>
+		</item>
+	</list>
+</data>
+		</textarea>
+	</td>
+</tr>
+
+<tr>
+	<td colspan="2">需要参加签名的参数:其中(hmacKey)指的是商户自己的密钥
+	<input type='text' name='digest' size="60" value='cmd,mer_Id,batch_No,total_Num,total_Amt,is_Repay,hmacKey'></td>
+</tr>
+<tr>
+	<td colspan="2">验证返回参数签名的参数:其中(hmacKey)指的是商户自己的密钥
+	<input type='text' name='backDigest' size="60" value='cmd,ret_Code,mer_Id,batch_No,total_Amt,total_Num,r1_Code,hmacKey'></td>
+</tr>
+<tr>
+	<td width=200><input type='submit' style='width:70px' name='' value='提交'></td>
+	<td></td>
+</tr>
+
+</table>
+</form>
+</html>

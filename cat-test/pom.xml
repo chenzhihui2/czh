@@ -10,13 +10,13 @@
 <modelVersion>4.0.0</modelVersion>
 
 <artifactId>cat-test</artifactId>
-
+<packaging>war</packaging>
 <dependencies>
     <!-- PERSISTENCE end -->
     <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>servlet-api</artifactId>
-        <version>3.0.1</version>
+        <version>2.5</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
@@ -70,6 +70,16 @@
     <dependency>
         <groupId>com.alibaba</groupId>
         <artifactId>fastjson</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>antlr</groupId>
+        <artifactId>antlr</artifactId>
+        <version>2.7.7</version>
+    </dependency>
+    <dependency>
+        <groupId>com.yeepay</groupId>
+        <artifactId>PKIBASE</artifactId>
+        <version>1.0</version>
     </dependency>
 </dependencies>
 </project>

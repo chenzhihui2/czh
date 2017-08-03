@@ -183,12 +183,25 @@ public class TestCPCN {
         System.out.print(result);
     }
 
+    public static void yeepayCallBack() throws Exception {
+//        map.put("amount","100");
+//        map.put("accountName","马嘉悦");
+//        map.put("accountNumber","6217002000035227141");
+//        map.put("identificationNumber","362301198611020522");
+        StringBuffer sb=new StringBuffer();
+        sb.append("billNo").append("=").append("2017062714022391843");
+//        map.put("remark","30");//测试环境备注10成功，备注20失败，备注30处理中
+        String result=HttpUtils.doPost("http://localhost:8080/yeepay/callback","yeepayssss中文","text/xml","gbk");
+//        String result=HttpUtils.doPost("http://117.78.49.154:8083/pay/cloudPay/refundOrder","sdfssdfs","text/xml","utf-8");
+        System.out.print(result);
 
+    }
 
     public static void main(String[] args) throws Exception {
 //        String result=HttpUtils.doPost("http://117.78.45.101:8083/pay/lycheepay/reconfileDownload","startDate=20170210&endDate=20170224","application/x-www-form-urlencoded","utf-8");
-        cloudPayRequest();
+//        cloudPayRequest();
 //        callBackIncool();
+        yeepayCallBack();
 //        refund();
 //        URLConnectionTool.readContentFromPost("http://117.78.45.101:8083/pay/lycheepay/reconfileDownload","startDate=20170210&endDate=20170224","60000","60000");
 //            testWhiteListUpload();

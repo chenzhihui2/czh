@@ -1,0 +1,46 @@
+<html>
+
+
+<form name="yeepay" action='./transferParamResolver.jsp' method='post'>
+<table>
+
+<tr>
+	<td colspan="2"><H1>测试提交URL<input type="text" id="textHost" name="textHost" size="80" value="http://cha.yeepay.com/app-merchant-proxy/groupTransferController.action"/><H1>
+	</td>
+</tr>
+
+<tr>
+	<td width=200>接口类型：打款明细查询xml请求报文</td>
+	<td>
+		<textarea rows="23" cols="120" name="xml" id="xml">
+<data>
+	<cmd>BatchDetailQuery</cmd>
+	<version>1.1</version>
+	<group_Id>10000450379</group_Id>
+	<mer_Id>10000450379</mer_Id>
+	<query_Mode>1</query_Mode>
+	<batch_No>201201310000001</batch_No>
+	<order_Id>20120131000000101</order_Id>
+	<page_No>1</page_No>
+	<hmac></hmac>
+</data>
+		</textarea>
+	</td>
+</tr>
+
+<tr>
+	<td colspan="2">需要参加签名的参数:其中(hmacKey)指的是商户自己的密钥
+	<input type='text' name='digest' size="60" value='cmd,mer_Id,batch_No,order_Id,page_No,hmacKey'></td>
+</tr>
+<tr>
+	<td colspan="2">验证返回参数签名的参数:其中(hmacKey)指的是商户自己的密钥
+	<input type='text' name='backDigest' size="60" value='cmd,ret_Code,batch_No,total_Num,end_Flag,hmacKey'></td>
+</tr>
+<tr>
+	<td width=200><input type='submit' style='width:70px' name='' value='提交'></td>
+	<td></td>
+</tr>
+
+</table>
+</form>
+</html>

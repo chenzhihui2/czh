@@ -1,0 +1,42 @@
+<html>
+
+
+<form name="yeepay" action='./transferParamResolver.jsp' method='post'>
+<table>
+
+<tr>
+	<td colspan="2"><H1>测试提交URL<input type="text" id="textHost" name="textHost" size="80" value="https://cha.yeepay.com/app-merchant-proxy/transferController.action"/><H1>
+	</td>
+</tr>
+
+<tr>
+	<td width=200>接口类型：商户账户余额查询xml请求报文</td>
+	<td>
+		<textarea rows="23" cols="120" name="xml" id="xml">
+<data>
+	<cmd>AccountBalanaceQuery</cmd>
+	<version>1.0</version>
+	<mer_Id>10000450379</mer_Id>
+	<date>2016-07-04</date>
+	<hmac>aad4628d4b1845f53872981e6094799d</hmac>
+</data>
+		</textarea>
+	</td>
+</tr>
+
+<tr>
+	<td colspan="2">需要参加签名的参数:其中(hmacKey)指的是商户自己的密钥
+	<input type='text' name='digest' size="60" value='cmd,mer_Id,date,hmacKey'></td>
+</tr>
+<tr>
+	<td colspan="2">验证返回参数签名的参数:其中(hmacKey)指的是商户自己的密钥
+	<input type='text' name='backDigest' size="60" value='cmd,ret_Code,balance_Amount,valid_Amount,hmacKey'></td>
+</tr>
+<tr>
+	<td width=200><input type='submit' style='width:70px' name='' value='提交'></td>
+	<td></td>
+</tr>
+
+</table>
+</form>
+</html>
